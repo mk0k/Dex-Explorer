@@ -5522,7 +5522,7 @@ do
 						elseif gap == true then
 							if not Option.Selectable then return end
 						
-							local node = TreeList[i + self.ScrollIndex]
+							locaal node = TreeList[i + self.ScrollIndex]
 						
 							if checkMouseInGui(curSelect) then
 								rightClickMenu(node.Object)
@@ -5531,7 +5531,7 @@ do
 						gap = true
 						wait(0.15)
 						gap = false
-					end
+					end)
 					
 					entry.MouseButton2Up:connect(function()
 						if not Option.Selectable then return end
