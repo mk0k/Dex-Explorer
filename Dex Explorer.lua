@@ -5011,21 +5011,7 @@ do
 							dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 						end
 					end)
-					local gap
-					entry.MouseButton1Click:connect(function()
-						if gap == 1 then
-							if not Option.Selectable then return end
-						
-							local node = TreeList[i + self.ScrollIndex]
-						
-							if checkMouseInGui(curSelect) then
-								rightClickMenu(node.Object)
-							end
-						end
-						gap += 1
-						wait(0.1)
-						gap = 0
-					end
+					
 					
 					entry.MouseButton2Down:connect(function()
 						if not Option.Selectable then return end
@@ -5045,7 +5031,15 @@ do
 							Selection:Set({node.Object})
 						end
 					end)
-					
+
+					entry.TouchLongPress:Connect(function()
+						if not Option.Selectable then return end
+						local node = TreeList[i + self.ScrollIndex]
+						if checkMouseInGui(curSelect) then
+							rightClickMenu(node.Object)
+						end
+					end)
+							
 					entry.MouseButton2Up:connect(function()
 						if not Option.Selectable then return end
 						
